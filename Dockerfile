@@ -12,3 +12,6 @@ COPY pia_port_fw.sh /etc/openvpn/pia/pia_port_fw.sh
 
 RUN chmod 755 /etc/openvpn/pia/openvpn-route.sh && chmod 755 /etc/openvpn/pia/pia_port_fw.sh
 RUN curl -o openvpn.zip https://www.privateinternetaccess.com/openvpn/openvpn.zip && unzip openvpn.zip
+RUN echo "1 rt2" >> /etc/iproute2/rt_tables
+
+ENTRYPOINT ["openvpn",  "--config",  "/etc/openvpn/pia/pia.conf"]

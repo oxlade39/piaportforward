@@ -56,6 +56,7 @@ up() {
   else
     echo "Failed to add local interface 'from' rule for $iplocal"
   fi
+  echo "Adding rule to gw"
   ip rule add to $gw/32 table $rtname
   if [ $? -eq 0 ]; then
     echo "Successfully added local interface 'to' rule for $gw"
