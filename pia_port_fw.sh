@@ -6,7 +6,9 @@ url="http://209.222.18.222:2000/?client_id=$client_id"
 
 echo "Making port forward request..."
 sleep 1
-curl --interface $(cat /tmp/vpnint) $url 2>/dev/null > /tmp/vpnportfwhttp
+#curl --interface $(cat /tmp/vpnint) $url 2>/dev/null > /tmp/vpnportfwhttp
+#wget -qO- http://209.222.18.222:2000/?client_id=$client_id
+curl $url 2>/dev/null > /tmp/vpnportfwhttp
 
 if [ $? -eq 0 ]; then
   port_fw=$(grep -o '[0-9]\+' /tmp/vpnportfwhttp)
