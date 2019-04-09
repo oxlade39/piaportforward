@@ -28,10 +28,10 @@ down() {
 
 up() {
   # using OpenVPN env vars that get set when it starts, see man page
-  echo "Tunnel on interface $int. File /tmp/vpnint"
-  echo $int > /tmp/vpnint
-  echo "Local IP is         $iplocal. File /tmp/vpnip"
-  echo $iplocal > /tmp/vpnip
+  echo "Tunnel on interface $int. File /config/vpnint"
+  echo $int > /config/vpnint
+  echo "Local IP is         $iplocal. File /config/vpnip"
+  echo $iplocal > /config/vpnip
   echo "Remote IP is        $ipremote"
   echo "Gateway is          $gw"
 
@@ -47,4 +47,3 @@ case $1 in
   "down") down;;
   *) help;;
 esac
-

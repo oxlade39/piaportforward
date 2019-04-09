@@ -31,4 +31,6 @@ echo "using remote ${PIADOMAIN} ${PORT}"
 
 echo "remote ${PIADOMAIN} ${PORT}" > /etc/openvpn/pia/remote.conf
 
+[[ -d /config ]] || mkdir /config
+
 openvpn --config /etc/openvpn/pia/proto.conf  --config  /etc/openvpn/pia/pia.conf --config /etc/openvpn/pia/remote.conf
