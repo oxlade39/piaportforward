@@ -18,4 +18,5 @@ if [ $? -eq 0 ]; then
   echo "Forwarded port is in file /tmp/vpnportfw"
 else
   echo "Curl failed to get forwarded PIA port in some way"
+  exit 1
 fi
