@@ -6,6 +6,16 @@
 [![](https://images.microbadger.com/badges/image/oxlade39/piaportforward.svg)](https://microbadger.com/images/oxlade39/piaportforward "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/oxlade39/piaportforward.svg)](https://microbadger.com/images/oxlade39/piaportforward "Get your own version badge on microbadger.com")
 
+[![Docker Build Status](https://img.shields.io/docker/cloud/build/oxlade39/piaportforward.svg)](https://hub.docker.com/r/oxlade39/piaportforward)
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/oxlade39/piaportforward.svg)](https://github.com/oxlade39/piaportforward/issues)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/oxlade39/piaportforward.svg)](https://github.com/oxlade39/piaportforward/issues)
+[![GitHub issues](https://img.shields.io/github/issues/oxlade39/piaportforward.svg)](https://github.com/oxlade39/piaportforward/issues)
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/oxlade39/piaportforward.svg)](https://hub.docker.com/r/oxlade39/piaportforward)
+[![Docker Stars](https://img.shields.io/docker/stars/oxlade39/piaportforward.svg)](https://hub.docker.com/r/oxlade39/piaportforward)
+[![Docker Automated](https://img.shields.io/docker/cloud/automated/oxlade39/piaportforward.svg)](https://hub.docker.com/r/oxlade39/piaportforward)
+
 ## Getting Started
 
 This docker image will connect to PIA with OpenVPN using your PIA credentials and then request a port be opened via [PIA's service](https://www.privateinternetaccess.com/helpdesk/kb/articles/how-do-i-enable-port-forwarding-on-my-vpn). Only some regions support port forwarding so make sure you select a supporting region.
@@ -87,6 +97,16 @@ $ docker run --rm --network=container:pia alpine:3.8 wget -qO- https://ipinfo.io
 ```
 If this port is different from above then the traffic is routing via the VPN.
 
+#### Attaching other containers
+
+To attach other containers you can use `--network=container:${piaportforward_container_name}` in docker or in docker-compose:
+```yaml
+my_linked_container:
+  image: some/image
+  container_name: my_linked_container
+  network_mode: service:${piaportforward_container_name}
+```
+
 ## Find Us
 
 * [GitHub](https://github.com/oxlade39/piaportforward)
@@ -94,4 +114,4 @@ If this port is different from above then the traffic is routing via the VPN.
 ## Acknowledgments
 
 * [www.pantz.org](https://www.pantz.org/software/openvpn/openvpn_with_private_internet_access_and_port_forwarding.html). I followed this guide and used modified, dockerized versions of the scripts listed here.
-* [qdm12/private-internet-access-docker](https://github.com/qdm12/private-internet-access-docker). I started using this but then decided to write my own supporting port forwarding.
+* [qdm12/private-internet-access-docker](https://github.com/oxlade39/piaportforward). I started using this but then decided to write my own supporting port forwarding.
