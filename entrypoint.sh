@@ -14,7 +14,7 @@ exitOnError(){
 cat "/etc/openvpn/pia/$REGION.ovpn" &> /dev/null
 exitOnError $? "/etc/openvpn/pia/$REGION.ovpn is not accessible"
 
-CONNECTIONSTRING=$(grep -i "/etc/openvpn/pia/$REGION.ovpn" -e 'privateinternetaccess.com')
+CONNECTIONSTRING=$(grep -i "/etc/openvpn/pia/$REGION.ovpn" -e 'privacy.network')
 exitOnError $?
 PORT=$(echo $CONNECTIONSTRING | cut -d' ' -f3)
 if [ "$PORT" = "" ]; then
